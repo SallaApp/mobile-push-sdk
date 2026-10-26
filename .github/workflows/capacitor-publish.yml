@@ -79,7 +79,7 @@ jobs:
           echo "version=$version" >>"$GITHUB_OUTPUT"
           echo "prerelease=$prerelease" >>"$GITHUB_OUTPUT"
           echo "$TAG names master's $(git rev-parse --short HEAD), and package.json and CHANGELOG name $version"
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: capacitor/.nvmrc
       - name: Install
@@ -142,7 +142,7 @@ jobs:
         with:
           name: release
           path: ${{ runner.temp }}/release
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
           registry-url: https://registry.npmjs.org
@@ -194,7 +194,7 @@ jobs:
         with:
           name: release
           path: ${{ runner.temp }}/release
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '24'
       # npm's own file of the version, so that the GitHub Release holds the package that npm serves. npm may take a
