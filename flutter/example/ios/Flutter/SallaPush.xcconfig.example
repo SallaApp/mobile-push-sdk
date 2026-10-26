@@ -1,0 +1,13 @@
+// Copy this file to SallaPush.xcconfig, which git ignores, and set your values.
+
+// The iOS app id, for example 00000000-0000-4000-8000-000000000001.
+SALLAPUSH_APP_ID =
+
+// The app's bundle id. The extension's is this one plus .SallaPushNotificationService.
+SALLAPUSH_EXAMPLE_BUNDLE_ID = sa.salla.sallapush.flutter.example
+
+// Your Apple development team, for builds on a device.
+DEVELOPMENT_TEAM =
+
+// Optional: an App Group for the app and the extension (README.md says how to add its capability locally).
+SALLAPUSH_APP_GROUP =

@@ -1,0 +1,19 @@
+# The SallaPush lines of a Flutter app's ios/Podfile, only when Swift Package Manager is disabled for the project
+# (pubspec.yaml: flutter: config: enable-swift-package-manager: false). With Swift Package Manager on, SallaPush comes
+# through it, and these lines would link it twice. scripts/verify.sh ios-pods builds them in a fresh app.
+target 'Runner' do
+  use_frameworks!
+
+  # snippet:podfile-app
+  pod 'SallaPushCore', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
+  pod 'SallaPush', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
+  # end-snippet
+end
+
+# snippet:podfile-extension
+target 'SallaPushNotificationService' do
+  use_frameworks!
+  pod 'SallaPushCore', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
+  pod 'SallaPushExtension', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
+end
+# end-snippet

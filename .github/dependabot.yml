@@ -1,0 +1,12 @@
+# Keeps the workflows' actions current: once a month, Dependabot proposes the newer releases, pinned to their commits
+# with the version in a comment, as the tree step of each package's scripts/verify.sh requires. Its pull requests are
+# titled "chore(deps): bump ...", a title the PR title check accepts (.github/workflows/lint-pr.yml).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: chore
+      include: scope

@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <application>
+    <!-- initOrder -1: after FirebaseInitProvider (100) and androidx.startup's InitializationProvider (0). -->
+    <provider
+      android:name="sa.salla.sallapush_flutter.SallaPushInitProvider"
+      android:authorities="${applicationId}.sallapush-flutter-init"
+      android:exported="false"
+      android:initOrder="-1" />
+  </application>
+</manifest>

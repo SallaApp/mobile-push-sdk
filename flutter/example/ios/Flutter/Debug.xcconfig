@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+SALLAPUSH_EXAMPLE_BUNDLE_ID = sa.salla.sallapush.flutter.example
+
+#include? "SallaPush.xcconfig"
+#include? "SallaPush.smoke.xcconfig"

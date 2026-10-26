@@ -1,0 +1,22 @@
+name: sallapush_flutter_example
+description: "Demonstrates how to use the mobile_push plugin."
+publish_to: none
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mobile_push:
+    path: ../
+
+dev_dependencies:
+  flutter_lints: 6.0.0
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

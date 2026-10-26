@@ -1,0 +1,120 @@
+name: React Native CI
+
+# The checks of the React Native package, on GitHub-hosted runners, from react-native/: the portable steps of
+# scripts/verify.sh, and its android step on Linux and ios step on macOS, which build the example with the SallaPush
+# native SDKs at the pinned versions (from Maven Central and the SallaPush iOS repository). The example smoke tests, on
+# a simulator and an emulator, the consumer installs and the device checklist run before each release
+# (react-native/RELEASING.md). ci.yml calls this workflow for every pull request that changes react-native/ or this
+# package's workflows, and for every push to master. It can also be run by hand.
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+    working-directory: react-native
+
+jobs:
+  js:
+    name: JavaScript, types, unit tests and Expo plugin
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: react-native/.nvmrc
+      - name: Install
+        run: |
+          corepack enable
+          yarn install --immutable
+      - name: Lint, types, unit tests, checker self-tests, build, npm package, API surface, parity, README snippets, version pins and tree
+        run: scripts/verify.sh lint typecheck test build pack api parity snippets pins tree
+
+  shell-scripts:
+    name: Shell scripts
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: bash -n, shellcheck and the tooling self-test
+        run: scripts/verify.sh shell
+
+  android:
+    name: Android unit tests, lint and release build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: react-native/.nvmrc
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: temurin
+          java-version: '17'
+      # Validates the example's gradle-wrapper.jar. The open-source "basic" cache, written on master only.
+      - uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
+        with:
+          cache-provider: basic
+      - name: Install
+        run: |
+          corepack enable
+          yarn install --immutable
+      - name: The library's unit tests and lint, the example's release build and its merged manifest
+        run: scripts/verify.sh android
+
+  ios:
+    name: iOS builds and XCTest
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: react-native/.nvmrc
+      - name: Install
+        run: |
+          corepack enable
+          yarn install --immutable
+      - name: The example in three linkages, then its XCTest suite, serially
+        run: scripts/verify.sh ios
+
+  # It fails unless every job above succeeded or was skipped. ci.yml's Testing Ready, the check that a pull request
+  # needs, fails with it.
+  ready:
+    name: React Native ready
+    if: always()
+    needs: [js, shell-scripts, android, ios]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    # Without a checkout, the workspace has no react-native folder.
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Every job above succeeded or was skipped
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          set -euo pipefail
+          for result in $RESULTS; do
+            case "$result" in
+              success | skipped) ;;
+              *) echo "::error::a job this check needs ended with $result"; exit 1 ;;
+            esac
+          done
+          echo "every job succeeded or was skipped: $RESULTS"

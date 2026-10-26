@@ -1,0 +1,153 @@
+name: CI
+
+# Every pull request and every push to master. The organization's rule set requires one check named Testing Ready on
+# every pull request, so this workflow runs the checks of each package, its reusable workflow
+# .github/workflows/<package>-ci.yml, and ends with that check. A pull request runs the checks of each package whose
+# folder or workflows it changes, and of all three when it changes this file or when git can't list its changes; a push
+# to master runs all three. A pull request that changes files outside the three folders also runs the tree check of
+# react-native/scripts/verify.sh on them, the Root files job, as every push to master does.
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+# The packages' workflows have no concurrency group of their own: in a called workflow, github.workflow is this
+# workflow's name, so their group would be this one.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  changes:
+    name: Changed packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      flutter: ${{ steps.packages.outputs.flutter }}
+      react-native: ${{ steps.packages.outputs.react-native }}
+      capacitor: ${{ steps.packages.outputs.capacitor }}
+      root: ${{ steps.packages.outputs.root }}
+    steps:
+      # All history, so that git finds where the pull request's branch left its base.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: github.event_name == 'pull_request'
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: The packages whose folder or workflows changed
+        id: packages
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          # git lists the paths unquoted, each ended by a NUL. The log shows each one escaped and after a word, so
+          # that no path can start a line that the runner would read as a workflow command.
+          changes="$RUNNER_TEMP/changes"
+          # Without the list of changes, as on a push, every package's checks run.
+          known=false
+          if [ "$EVENT" = pull_request ] && [ -n "$BASE_SHA" ] && [ -n "$HEAD_SHA" ] &&
+            git diff --name-only --no-renames -z "$BASE_SHA...$HEAD_SHA" >"$changes"; then
+            known=true
+            while IFS= read -r -d '' path; do
+              printf 'changed: %q\n' "$path"
+            done <"$changes"
+          elif [ "$EVENT" = pull_request ]; then
+            echo "::warning::git can't list the pull request's changes, so every package's checks run"
+          fi
+          for package in flutter react-native capacitor; do
+            run=true
+            if [ "$known" = true ]; then
+              run=false
+              while IFS= read -r -d '' path; do
+                case "$path" in
+                  "$package"/* | ".github/workflows/$package-"* | .github/workflows/ci.yml) run=true ;;
+                esac
+              done <"$changes"
+            fi
+            echo "$package=$run" >>"$GITHUB_OUTPUT"
+            echo "$package: $run"
+          done
+          # The files outside the three folders, .github included, which react-native/scripts/verify.sh tree checks.
+          root=true
+          if [ "$known" = true ]; then
+            root=false
+            while IFS= read -r -d '' path; do
+              case "$path" in
+                flutter/* | react-native/* | capacitor/*) ;;
+                *) root=true ;;
+              esac
+            done <"$changes"
+          fi
+          echo "root=$root" >>"$GITHUB_OUTPUT"
+          echo "root: $root"
+
+  flutter:
+    name: Flutter
+    needs: changes
+    if: needs.changes.outputs.flutter == 'true'
+    uses: ./.github/workflows/flutter-ci.yml
+
+  react-native:
+    name: React Native
+    needs: changes
+    if: needs.changes.outputs.react-native == 'true'
+    uses: ./.github/workflows/react-native-ci.yml
+
+  capacitor:
+    name: Capacitor
+    needs: changes
+    if: needs.changes.outputs.capacitor == 'true'
+    uses: ./.github/workflows/capacitor-ci.yml
+
+  # The root files and every workflow, as react-native/scripts/verify.sh tree checks them on every push to master. It
+  # needs no install.
+  root:
+    name: Root files
+    needs: changes
+    if: needs.changes.outputs.root == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: No credential, secret, personal path, ticket key or unpinned action in the root files and workflows
+        working-directory: react-native
+        run: scripts/verify.sh tree
+
+  # The check that a pull request needs: it fails unless every job above succeeded or was skipped.
+  testing-ready:
+    name: Testing Ready
+    if: always()
+    needs: [changes, root, flutter, react-native, capacitor]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Every job above succeeded or was skipped
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          set -euo pipefail
+          jq -r 'to_entries[] | "\(.key) \(.value.result)"' <<<"$NEEDS" >"$RUNNER_TEMP/results"
+          failed=false
+          while read -r job result; do
+            case "$result" in
+              success | skipped) echo "$job: $result" ;;
+              *)
+                echo "::error::$job ended with $result"
+                failed=true
+                ;;
+            esac
+          done <"$RUNNER_TEMP/results"
+          [ "$failed" = false ] || exit 1
+          echo "every job succeeded or was skipped"

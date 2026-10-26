@@ -1,0 +1,134 @@
+abstract final class SallaPush
+SallaPush.appId -> Future<String?> [static getter]
+SallaPush.debug -> SallaPushDebug [static final]
+SallaPush.initialize(String appId, {SallaPushConfig config = const SallaPushConfig()}) -> Future<void> [static]
+SallaPush.isInitialized -> Future<bool> [static getter]
+SallaPush.login({required String externalId, required String identityToken}) -> Future<void> [static]
+SallaPush.logout() -> Future<void> [static]
+SallaPush.migration -> SallaPushMigration [static final]
+SallaPush.notifications -> SallaPushNotifications [static final]
+SallaPush.sdkVersion -> Future<String> [static getter]
+SallaPush.setConsentGiven(bool given) -> Future<void> [static]
+SallaPush.setConsentRequired(bool required) -> Future<void> [static]
+SallaPush.user -> SallaPushUser [static final]
+enum SallaPushApnsEnvironment { automatic, sandbox, production }
+final class SallaPushClickEvent
+SallaPushClickEvent.notification -> SallaPushNotification [final]
+SallaPushClickEvent.result -> SallaPushClickResult [final]
+SallaPushClickEvent.toString() -> String [@override]
+final class SallaPushClickResult
+SallaPushClickResult.actionId -> String? [final]
+SallaPushClickResult.toString() -> String [@override]
+SallaPushClickResult.url -> String? [final]
+final class SallaPushConfig
+SallaPushConfig.appVersion -> String? [final]
+SallaPushConfig.autoClearBadge -> bool? [final]
+SallaPushConfig.autoUpdateBadge -> bool? [final]
+SallaPushConfig.clearTagsOnLogout -> bool? [final]
+SallaPushConfig.ios -> SallaPushIosConfig [final]
+SallaPushConfig.logLevel -> SallaPushLogLevel? [final]
+SallaPushConfig.new({this.logLevel, this.appVersion, this.clearTagsOnLogout, this.requiresUserConsent, this.openLaunchUrls, this.autoClearBadge, this.autoUpdateBadge, this.ios = const SallaPushIosConfig()}) [const constructor]
+SallaPushConfig.openLaunchUrls -> bool? [final]
+SallaPushConfig.requiresUserConsent -> bool? [final]
+final class SallaPushDebug
+SallaPushDebug.logLevel -> Future<SallaPushLogLevel> [getter]
+SallaPushDebug.setLogHandler(SallaPushLogLevel level, void Function(SallaPushLogEntry entry)? handler) -> Future<void>
+SallaPushDebug.setLogLevel(SallaPushLogLevel level) -> Future<void>
+final class SallaPushIosConfig
+SallaPushIosConfig.apnsEnvironment -> SallaPushApnsEnvironment? [final]
+SallaPushIosConfig.appGroupIdentifier -> String? [final]
+SallaPushIosConfig.new({this.appGroupIdentifier, this.apnsEnvironment, this.registerForRemoteNotificationsOnInit}) [const constructor]
+SallaPushIosConfig.registerForRemoteNotificationsOnInit -> bool? [final]
+enum SallaPushIosPermissionStatus { notDetermined, denied, authorized, provisional, ephemeral }
+final class SallaPushLogEntry
+SallaPushLogEntry.category -> String [final]
+SallaPushLogEntry.code -> String [final]
+SallaPushLogEntry.level -> SallaPushLogLevel [final]
+SallaPushLogEntry.message -> String [final]
+SallaPushLogEntry.metadata -> Map<String, String> [final]
+SallaPushLogEntry.timestamp -> DateTime [final]
+SallaPushLogEntry.toString() -> String [@override]
+enum SallaPushLogLevel { off, error, warn, info, debug, verbose }
+enum SallaPushLoginFailure { tokenRejected, invalidRequest }
+final class SallaPushMigration
+SallaPushMigration.setDisplayCompatPayloads(bool display) -> Future<void>
+final class SallaPushNotification
+SallaPushNotification.additionalData -> Map<String, Object?> [final]
+SallaPushNotification.androidNotificationId -> int? [final]
+SallaPushNotification.badge -> int? [final]
+SallaPushNotification.body -> String? [final]
+SallaPushNotification.channelId -> String? [final]
+SallaPushNotification.collapseId -> String? [final]
+SallaPushNotification.display() -> Future<void>
+SallaPushNotification.getBool(String key) -> bool?
+SallaPushNotification.getInt(String key) -> int?
+SallaPushNotification.getNumber(String key) -> num?
+SallaPushNotification.getString(String key) -> String?
+SallaPushNotification.imageUrl -> String? [final]
+SallaPushNotification.launchUrl -> String? [final]
+SallaPushNotification.notificationId -> String? [final]
+SallaPushNotification.rawPayload -> Map<String, Object?> [final]
+SallaPushNotification.sound -> String? [final]
+SallaPushNotification.source -> SallaPushPayloadSource [final]
+SallaPushNotification.subtitle -> String? [final]
+SallaPushNotification.threadId -> String? [final]
+SallaPushNotification.title -> String? [final]
+SallaPushNotification.toString() -> String [@override]
+final class SallaPushNotifications
+SallaPushNotifications.canRequestPermission() -> Future<bool>
+SallaPushNotifications.clearAll() -> Future<void>
+SallaPushNotifications.forwardApnsToken(String apnsToken) -> Future<void>
+SallaPushNotifications.isSallaPushNotification(Map<String, Object?> payload) -> Future<bool>
+SallaPushNotifications.onClick -> Stream<SallaPushClickEvent> [getter]
+SallaPushNotifications.onPermissionChange -> Stream<bool> [getter]
+SallaPushNotifications.onWillDisplay -> Stream<SallaPushWillDisplayEvent> [getter]
+SallaPushNotifications.permission -> Future<bool> [getter]
+SallaPushNotifications.permissionStatus -> Future<SallaPushIosPermissionStatus?> [getter]
+SallaPushNotifications.refreshPermission() -> Future<void>
+SallaPushNotifications.registerForProvisionalAuthorization() -> Future<bool>
+SallaPushNotifications.registerForRemoteNotifications() -> Future<void>
+SallaPushNotifications.removeNotification(int androidNotificationId) -> Future<void>
+SallaPushNotifications.requestPermission({bool fallbackToSettings = false}) -> Future<bool>
+SallaPushNotifications.trackOpened(Map<String, Object?>? additionalData) -> Future<bool>
+enum SallaPushPayloadSource { native, compat }
+final class SallaPushSubscription
+SallaPushSubscription.id -> Future<String?> [getter]
+SallaPushSubscription.onChange -> Stream<SallaPushSubscriptionChangedState> [getter]
+SallaPushSubscription.optIn() -> Future<void>
+SallaPushSubscription.optOut() -> Future<void>
+SallaPushSubscription.optedIn -> Future<bool> [getter]
+SallaPushSubscription.token -> Future<String?> [getter]
+final class SallaPushSubscriptionChangedState
+SallaPushSubscriptionChangedState.current -> SallaPushSubscriptionState [final]
+SallaPushSubscriptionChangedState.previous -> SallaPushSubscriptionState [final]
+SallaPushSubscriptionChangedState.toString() -> String [@override]
+final class SallaPushSubscriptionState
+SallaPushSubscriptionState.id -> String? [final]
+SallaPushSubscriptionState.optedIn -> bool [final]
+SallaPushSubscriptionState.toString() -> String [@override]
+SallaPushSubscriptionState.token -> String? [final]
+final class SallaPushUser
+SallaPushUser.addTag(String key, String value) -> Future<void>
+SallaPushUser.addTags(Map<String, String> tags) -> Future<void>
+SallaPushUser.externalId -> Future<String?> [getter]
+SallaPushUser.getTags() -> Future<Map<String, String>>
+SallaPushUser.isLoggedIn -> Future<bool> [getter]
+SallaPushUser.onChange -> Stream<SallaPushUserChangedState> [getter]
+SallaPushUser.onLoginFailure -> Stream<SallaPushLoginFailure> [getter]
+SallaPushUser.pushSubscription -> SallaPushSubscription [getter]
+SallaPushUser.removeTag(String key) -> Future<void>
+SallaPushUser.removeTags(List<String> keys) -> Future<void>
+SallaPushUser.setLanguage(String? language) -> Future<void>
+final class SallaPushUserChangedState
+SallaPushUserChangedState.current -> SallaPushUserState [final]
+SallaPushUserChangedState.previous -> SallaPushUserState [final]
+SallaPushUserChangedState.toString() -> String [@override]
+final class SallaPushUserState
+SallaPushUserState.externalId -> String? [final]
+SallaPushUserState.isLoggedIn -> bool [final]
+SallaPushUserState.toString() -> String [@override]
+final class SallaPushWillDisplayEvent
+SallaPushWillDisplayEvent.isPrevented -> bool [getter]
+SallaPushWillDisplayEvent.notification -> SallaPushNotification [final]
+SallaPushWillDisplayEvent.preventDefault() -> void
+SallaPushWillDisplayEvent.toString() -> String [@override]

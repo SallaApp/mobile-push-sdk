@@ -1,0 +1,69 @@
+# OS and editors
+.DS_Store
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.history/
+.atom/
+.svn/
+*.swp
+
+# Build logs and outputs
+*.class
+*.log
+*.pyc
+.build/
+.buildlog/
+
+# Dart and Flutter
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+/pubspec.lock
+**/doc/api/
+.swiftpm/
+coverage/
+migrate_working_dir/
+
+# Android
+**/android/.gradle/
+**/android/.kotlin/
+**/android/local.properties
+**/android/captures/
+**/android/**/GeneratedPluginRegistrant.*
+**/key.properties
+*.jks
+*.keystore
+
+# iOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/xcuserdata/
+# The plugin's Package.swift pins SallaPush exactly.
+example/ios/**/swiftpm/Package.resolved
+
+# The example's local SallaPush configuration
+example/ios/Flutter/SallaPush.xcconfig
+example/ios/Flutter/SallaPush.smoke.xcconfig
+example/android/sallapush.properties
+
+# App configuration and secrets: never commit
+google-services.json
+GoogleService-Info.plist
+*.p8
+*.p12
+.env
+.env.*
+*.mobileprovision
+*.cer
+service-account*.json

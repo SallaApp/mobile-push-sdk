@@ -1,0 +1,926 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* StaticConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* StaticConfigTests.swift */; };
+		045B59C81DD0292307CF9EBF /* EventRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63719C400FFF79D2795D6F5C /* EventRegistryTests.swift */; };
+		0C80B921A6F3F58F76C31292 /* libPods-SallaPushExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-SallaPushExample.a */; };
+		104B65EC8E0BF9BFB59C64EC /* MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7939D49D2983AD1D2634E96 /* MappingTests.swift */; };
+		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1756E66D4CC111B028A0ECDC /* InitOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3FBE66422071A250EAA982 /* InitOptionsTests.swift */; };
+		1C71E65A6C93DD199B2D05E2 /* TestNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3958AAC4F14C11AD4FDCE99F /* TestNotifications.swift */; };
+		47185939C9AB6DE352B4EFFF /* SallaPushNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CA0678B64B7D29AB643452C5 /* SallaPushNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4A2C47CF3DF83B1FC14A6F0C /* SallaPushBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6B00F80036D658875B0F5 /* SallaPushBridgeTests.swift */; };
+		65256634F66501129F4DEC69 /* SallaPushRNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9A04B35C8F65B0A9FA1A92 /* SallaPushRNTests.swift */; };
+		672AF20C5470E75D52728CE7 /* native.apns in Resources */ = {isa = PBXBuildFile; fileRef = 598D7D210D90E941BD46B1D3 /* native.apns */; };
+		6D33549522B1F660A349519D /* libPods-SallaPushExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6382A42FD114DAE625F3906 /* libPods-SallaPushExampleTests.a */; };
+		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
+		7F6334A69B8BD9289DA4583B /* libPods-SallaPushNotificationService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CFF05D6789AA518A2F5886 /* libPods-SallaPushNotificationService.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		97B1D093274A74416541A75E /* DisplayStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC09F10AE05D3B7D55BD65 /* DisplayStoreTests.swift */; };
+		AE1C77B1097AA41BF9BF6DB3 /* Fakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC1F197110955E8FED79E1A /* Fakes.swift */; };
+		AF2103183B7F7C25140139F1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F28A8C35B3A99639FF1494 /* NotificationService.swift */; };
+		B29573AC6A4B91C22E148F26 /* WillDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ADAF65866A4AE14930C641 /* WillDisplayTests.swift */; };
+		CA25D87EE1EFC97C6B1BE482 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		D1EB6AF08D329A32871824A6 /* RNSallaPushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42A78BE7C505D421569729 /* RNSallaPushTests.swift */; };
+		D992B93703F7B241C0B18721 /* compat.apns in Resources */ = {isa = PBXBuildFile; fileRef = F720E733D7ECD910F981F55E /* compat.apns */; };
+		DFF45C278082A14D88961B52 /* NotificationsBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D33AD1269A31651F5E8CAA /* NotificationsBridgeTests.swift */; };
+		F84716DC18ECC728DC8391B9 /* LogHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CF9248DD9E3EAEC587C4CA /* LogHandlerTests.swift */; };
+		FC6B0E0FE132C872DD5ABFCF /* NotificationCenterDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA702857E813D85AFB2CBBEE /* NotificationCenterDelegateTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = SallaPushExample;
+		};
+		0FC9EBD635957A81A09CA123 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70E544BAF7441F7C76EC2100;
+			remoteInfo = SallaPushNotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E3B3B84569150E9BBF9535A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				47185939C9AB6DE352B4EFFF /* SallaPushNotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00E356EE1AD99517003FC87E /* SallaPushExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SallaPushExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* StaticConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticConfigTests.swift; sourceTree = "<group>"; };
+		0D3FBE66422071A250EAA982 /* InitOptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitOptionsTests.swift; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* SallaPushExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SallaPushExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SallaPushExample/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SallaPushExample/Info.plist; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = SallaPushExample/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		16CF9248DD9E3EAEC587C4CA /* LogHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHandlerTests.swift; sourceTree = "<group>"; };
+		19B6ED7C2957E2B63DF006F7 /* Pods-SallaPushExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SallaPushExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-SallaPushExampleTests/Pods-SallaPushExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1BA31C21F13ACF4CDEE5F320 /* Pods-SallaPushNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SallaPushNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-SallaPushNotificationService/Pods-SallaPushNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		3958AAC4F14C11AD4FDCE99F /* TestNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNotifications.swift; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-SallaPushExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SallaPushExample.debug.xcconfig"; path = "Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample.debug.xcconfig"; sourceTree = "<group>"; };
+		3C9A04B35C8F65B0A9FA1A92 /* SallaPushRNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SallaPushRNTests.swift; sourceTree = "<group>"; };
+		3DC1F197110955E8FED79E1A /* Fakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fakes.swift; sourceTree = "<group>"; };
+		50ADAF65866A4AE14930C641 /* WillDisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillDisplayTests.swift; sourceTree = "<group>"; };
+		5158E32B99E3046AFBD722A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-SallaPushExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SallaPushExample.release.xcconfig"; path = "Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample.release.xcconfig"; sourceTree = "<group>"; };
+		598D7D210D90E941BD46B1D3 /* native.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = native.apns; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-SallaPushExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SallaPushExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63719C400FFF79D2795D6F5C /* EventRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRegistryTests.swift; sourceTree = "<group>"; };
+		71F28A8C35B3A99639FF1494 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SallaPushExample/AppDelegate.swift; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SallaPushExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91CFF05D6789AA518A2F5886 /* libPods-SallaPushNotificationService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SallaPushNotificationService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D33AD1269A31651F5E8CAA /* NotificationsBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsBridgeTests.swift; sourceTree = "<group>"; };
+		A075F6746784C964C09BC896 /* SallaPush.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SallaPush.xcconfig; sourceTree = "<group>"; };
+		A6382A42FD114DAE625F3906 /* libPods-SallaPushExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SallaPushExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6BC09F10AE05D3B7D55BD65 /* DisplayStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayStoreTests.swift; sourceTree = "<group>"; };
+		B7939D49D2983AD1D2634E96 /* MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingTests.swift; sourceTree = "<group>"; };
+		BA702857E813D85AFB2CBBEE /* NotificationCenterDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterDelegateTests.swift; sourceTree = "<group>"; };
+		C5F03AFD691CCC96508900FA /* SallaPushExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SallaPushExample.entitlements; path = SallaPushExample/SallaPushExample.entitlements; sourceTree = "<group>"; };
+		CA0678B64B7D29AB643452C5 /* SallaPushNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SallaPushNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFACFCFD6754A376ACCF179C /* Pods-SallaPushNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SallaPushNotificationService.release.xcconfig"; path = "Target Support Files/Pods-SallaPushNotificationService/Pods-SallaPushNotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		D9C6B00F80036D658875B0F5 /* SallaPushBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SallaPushBridgeTests.swift; sourceTree = "<group>"; };
+		E68139B976C82F41950E03A9 /* Pods-SallaPushExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SallaPushExampleTests.release.xcconfig"; path = "Target Support Files/Pods-SallaPushExampleTests/Pods-SallaPushExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F720E733D7ECD910F981F55E /* compat.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = compat.apns; sourceTree = "<group>"; };
+		FF42A78BE7C505D421569729 /* RNSallaPushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSallaPushTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D33549522B1F660A349519D /* libPods-SallaPushExampleTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C80B921A6F3F58F76C31292 /* libPods-SallaPushExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6ACAA0227D8CA1E6F6C6E80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F6334A69B8BD9289DA4583B /* libPods-SallaPushNotificationService.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* SallaPushExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6BC09F10AE05D3B7D55BD65 /* DisplayStoreTests.swift */,
+				63719C400FFF79D2795D6F5C /* EventRegistryTests.swift */,
+				3DC1F197110955E8FED79E1A /* Fakes.swift */,
+				0D3FBE66422071A250EAA982 /* InitOptionsTests.swift */,
+				16CF9248DD9E3EAEC587C4CA /* LogHandlerTests.swift */,
+				B7939D49D2983AD1D2634E96 /* MappingTests.swift */,
+				BA702857E813D85AFB2CBBEE /* NotificationCenterDelegateTests.swift */,
+				97D33AD1269A31651F5E8CAA /* NotificationsBridgeTests.swift */,
+				FF42A78BE7C505D421569729 /* RNSallaPushTests.swift */,
+				D9C6B00F80036D658875B0F5 /* SallaPushBridgeTests.swift */,
+				3C9A04B35C8F65B0A9FA1A92 /* SallaPushRNTests.swift */,
+				00E356F21AD99517003FC87E /* StaticConfigTests.swift */,
+				3958AAC4F14C11AD4FDCE99F /* TestNotifications.swift */,
+				50ADAF65866A4AE14930C641 /* WillDisplayTests.swift */,
+			);
+			path = SallaPushExampleTests;
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* SallaPushExample */ = {
+			isa = PBXGroup;
+			children = (
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				761780EC2CA45674006654EE /* AppDelegate.swift */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				C5F03AFD691CCC96508900FA /* SallaPushExample.entitlements */,
+			);
+			name = SallaPushExample;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-SallaPushExample.a */,
+				A6382A42FD114DAE625F3906 /* libPods-SallaPushExampleTests.a */,
+				91CFF05D6789AA518A2F5886 /* libPods-SallaPushNotificationService.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49A5C87FFD66C1F78353B1BD /* SallaPushNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				5158E32B99E3046AFBD722A2 /* Info.plist */,
+				71F28A8C35B3A99639FF1494 /* NotificationService.swift */,
+			);
+			path = SallaPushNotificationService;
+			sourceTree = "<group>";
+		};
+		7C623D8FD1025E3149E38CF5 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A075F6746784C964C09BC896 /* SallaPush.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* SallaPushExample */,
+				00E356EF1AD99517003FC87E /* SallaPushExampleTests */,
+				49A5C87FFD66C1F78353B1BD /* SallaPushNotificationService */,
+				7C623D8FD1025E3149E38CF5 /* Config */,
+				F0F52E0DC7085D67C67A748E /* TestPayloads */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* SallaPushExample.app */,
+				00E356EE1AD99517003FC87E /* SallaPushExampleTests.xctest */,
+				CA0678B64B7D29AB643452C5 /* SallaPushNotificationService.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B4392A12AC88292D35C810B /* Pods-SallaPushExample.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-SallaPushExample.release.xcconfig */,
+				19B6ED7C2957E2B63DF006F7 /* Pods-SallaPushExampleTests.debug.xcconfig */,
+				E68139B976C82F41950E03A9 /* Pods-SallaPushExampleTests.release.xcconfig */,
+				1BA31C21F13ACF4CDEE5F320 /* Pods-SallaPushNotificationService.debug.xcconfig */,
+				CFACFCFD6754A376ACCF179C /* Pods-SallaPushNotificationService.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F0F52E0DC7085D67C67A748E /* TestPayloads */ = {
+			isa = PBXGroup;
+			children = (
+				F720E733D7ECD910F981F55E /* compat.apns */,
+				598D7D210D90E941BD46B1D3 /* native.apns */,
+			);
+			path = TestPayloads;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* SallaPushExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SallaPushExampleTests" */;
+			buildPhases = (
+				D4A75FBEBDC19B9F3734F9D3 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = SallaPushExampleTests;
+			productName = SallaPushExampleTests;
+			productReference = 00E356EE1AD99517003FC87E /* SallaPushExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13B07F861A680F5B00A75B9A /* SallaPushExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SallaPushExample" */;
+			buildPhases = (
+				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
+				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				3E3B3B84569150E9BBF9535A /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				642D1C56FD6B4D8AEEEFEEF7 /* PBXTargetDependency */,
+			);
+			name = SallaPushExample;
+			productName = SallaPushExample;
+			productReference = 13B07F961A680F5B00A75B9A /* SallaPushExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		70E544BAF7441F7C76EC2100 /* SallaPushNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E6233ED43E4B5584AC86176 /* Build configuration list for PBXNativeTarget "SallaPushNotificationService" */;
+			buildPhases = (
+				338CEC296E2740AC92D1DE0A /* [CP] Check Pods Manifest.lock */,
+				0AC755422144A9AD54A387F3 /* Sources */,
+				F6ACAA0227D8CA1E6F6C6E80 /* Frameworks */,
+				ADF0D4C151CA78A89BCD5DB6 /* Resources */,
+				E576738DEA756BFCE28DC80F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SallaPushNotificationService;
+			productName = SallaPushNotificationService;
+			productReference = CA0678B64B7D29AB643452C5 /* SallaPushNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SallaPushExample" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* SallaPushExample */,
+				00E356ED1AD99517003FC87E /* SallaPushExampleTests */,
+				70E544BAF7441F7C76EC2100 /* SallaPushNotificationService */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D992B93703F7B241C0B18721 /* compat.apns in Resources */,
+				672AF20C5470E75D52728CE7 /* native.apns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CA25D87EE1EFC97C6B1BE482 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADF0D4C151CA78A89BCD5DB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"\\\"$WITH_ENVIRONMENT\\\" \\\"$REACT_NATIVE_XCODE\\\"\"\n";
+		};
+		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		338CEC296E2740AC92D1DE0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SallaPushNotificationService-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SallaPushExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4A75FBEBDC19B9F3734F9D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SallaPushExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SallaPushExample/Pods-SallaPushExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E576738DEA756BFCE28DC80F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SallaPushNotificationService/Pods-SallaPushNotificationService-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SallaPushNotificationService/Pods-SallaPushNotificationService-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SallaPushNotificationService/Pods-SallaPushNotificationService-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97B1D093274A74416541A75E /* DisplayStoreTests.swift in Sources */,
+				045B59C81DD0292307CF9EBF /* EventRegistryTests.swift in Sources */,
+				AE1C77B1097AA41BF9BF6DB3 /* Fakes.swift in Sources */,
+				1756E66D4CC111B028A0ECDC /* InitOptionsTests.swift in Sources */,
+				F84716DC18ECC728DC8391B9 /* LogHandlerTests.swift in Sources */,
+				104B65EC8E0BF9BFB59C64EC /* MappingTests.swift in Sources */,
+				FC6B0E0FE132C872DD5ABFCF /* NotificationCenterDelegateTests.swift in Sources */,
+				DFF45C278082A14D88961B52 /* NotificationsBridgeTests.swift in Sources */,
+				D1EB6AF08D329A32871824A6 /* RNSallaPushTests.swift in Sources */,
+				4A2C47CF3DF83B1FC14A6F0C /* SallaPushBridgeTests.swift in Sources */,
+				65256634F66501129F4DEC69 /* SallaPushRNTests.swift in Sources */,
+				00E356F31AD99517003FC87E /* StaticConfigTests.swift in Sources */,
+				1C71E65A6C93DD199B2D05E2 /* TestNotifications.swift in Sources */,
+				B29573AC6A4B91C22E148F26 /* WillDisplayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AC755422144A9AD54A387F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF2103183B7F7C25140139F1 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* SallaPushExample */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		642D1C56FD6B4D8AEEEFEEF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70E544BAF7441F7C76EC2100 /* SallaPushNotificationService */;
+			targetProxy = 0FC9EBD635957A81A09CA123 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19B6ED7C2957E2B63DF006F7 /* Pods-SallaPushExampleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SALLAPUSH_EXAMPLE_BUNDLE_ID).SallaPushExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SallaPushExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SallaPushExample";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E68139B976C82F41950E03A9 /* Pods-SallaPushExampleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SALLAPUSH_EXAMPLE_BUNDLE_ID).SallaPushExampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SallaPushExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SallaPushExample";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-SallaPushExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SallaPushExample/SallaPushExample.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = SallaPushExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SALLAPUSH_EXAMPLE_BUNDLE_ID)";
+				PRODUCT_NAME = SallaPushExample;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-SallaPushExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SallaPushExample/SallaPushExample.entitlements;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = SallaPushExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SALLAPUSH_EXAMPLE_BUNDLE_ID)";
+				PRODUCT_NAME = SallaPushExample;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		573BEF643F9E60C75085EB8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BA31C21F13ACF4CDEE5F320 /* Pods-SallaPushNotificationService.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SallaPushNotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SALLAPUSH_EXAMPLE_BUNDLE_ID).SallaPushNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A075F6746784C964C09BC896 /* SallaPush.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				PODFILE_DIR = "$(SRCROOT)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				USE_HERMES = true;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A075F6746784C964C09BC896 /* SallaPush.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+					"-DRCT_REMOVE_LEGACY_ARCH=1",
+				);
+				PODFILE_DIR = "$(SRCROOT)";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				USE_HERMES = true;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8ABCC450909A1840A420C6ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFACFCFD6754A376ACCF179C /* Pods-SallaPushNotificationService.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SallaPushNotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(SALLAPUSH_EXAMPLE_BUNDLE_ID).SallaPushNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "SallaPushExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SallaPushExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SallaPushExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E6233ED43E4B5584AC86176 /* Build configuration list for PBXNativeTarget "SallaPushNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				573BEF643F9E60C75085EB8C /* Debug */,
+				8ABCC450909A1840A420C6ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}

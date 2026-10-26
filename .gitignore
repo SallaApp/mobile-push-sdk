@@ -1,0 +1,22 @@
+# Each package's folder has its own .gitignore. These rules, which every package's .gitignore has, also cover the
+# repository's root.
+
+# OS and editors
+.DS_Store
+.idea/
+*.iml
+.vscode/
+.history/
+
+# App configuration and secrets: never commit
+google-services.json
+GoogleService-Info.plist
+*.p8
+*.p12
+*.jks
+*.keystore
+.env
+.env.*
+*.mobileprovision
+*.cer
+service-account*.json

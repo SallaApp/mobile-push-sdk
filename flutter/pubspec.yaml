@@ -1,0 +1,39 @@
+name: mobile_push
+description: "SallaPush Flutter SDK: push notifications for the Flutter apps of Salla stores, built on the native SallaPush SDKs."
+version: 1.0.0
+repository: https://github.com/SallaApp/mobile-push-sdk/tree/master/flutter
+issue_tracker: https://github.com/SallaApp/mobile-push-sdk/issues
+topics:
+  - push-notifications
+  - notifications
+  - salla
+  - apns
+  - fcm
+
+environment:
+  sdk: ^3.12.0
+  flutter: '>=3.44.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.15.0
+
+dev_dependencies:
+  # Within the range Pigeon 29.0.8 accepts, and below analyzer's next minor version: tool/dump_api.dart reads its
+  # syntax tree, whose members new minor versions deprecate, and flutter analyze fails on those. Raise the cap after
+  # dump_api --check, test/tool and flutter analyze pass on every Flutter version CI runs. Flutter 3.44 resolves 13.0.0.
+  analyzer: '>=13.0.0 <14.6.0'
+  flutter_lints: 6.0.0
+  flutter_test:
+    sdk: flutter
+  pigeon: 29.0.8
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: sa.salla.sallapush_flutter
+        pluginClass: SallaPushFlutterPlugin
+      ios:
+        pluginClass: SallaPushFlutterPlugin

@@ -1,0 +1,83 @@
+# What `flutter pub publish` leaves out of the pub.dev archive. pub reads this file instead of .gitignore in this
+# folder, so it starts with .gitignore's rules: keep them in step.
+
+# OS and editors
+.DS_Store
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.history/
+.atom/
+.svn/
+*.swp
+
+# Build logs and outputs
+*.class
+*.log
+*.pyc
+.build/
+.buildlog/
+
+# Dart and Flutter
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+/pubspec.lock
+**/doc/api/
+.swiftpm/
+coverage/
+migrate_working_dir/
+
+# Android
+**/android/.gradle/
+**/android/.kotlin/
+**/android/local.properties
+**/android/captures/
+**/android/**/GeneratedPluginRegistrant.*
+**/key.properties
+*.jks
+*.keystore
+
+# iOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/xcuserdata/
+# The plugin's Package.swift pins SallaPush exactly.
+example/ios/**/swiftpm/Package.resolved
+
+# The example's local SallaPush configuration
+example/ios/Flutter/SallaPush.xcconfig
+example/ios/Flutter/SallaPush.smoke.xcconfig
+example/android/sallapush.properties
+
+# App configuration and secrets: never commit
+google-services.json
+GoogleService-Info.plist
+*.p8
+*.p12
+.env
+.env.*
+*.mobileprovision
+*.cer
+service-account*.json
+
+# The repository's own tooling, checks and maintainer docs, which the package doesn't need. pub.dev resolves the
+# README's relative links, such as those to docs/, against the repository.
+/api/
+/docs/
+/pigeons/
+/scripts/
+/test/tool/
+/tool/
+/CONTRIBUTING.md
+/RELEASING.md

@@ -1,0 +1,123 @@
+name: Flutter publish
+
+# A release tag, flutter-<version> on a commit of master (flutter/RELEASING.md): publishes that version of the package
+# in flutter/ to pub.dev through pub.dev's automated publishing, then creates its GitHub Release, named as the tag, from
+# the version's CHANGELOG entry. Both jobs run in the protected environment release. pub.dev takes the upload only from
+# this repository, a tag that matches the tag pattern flutter-{{version}} and that environment, as the package's
+# automated-publishing settings on pub.dev say. A version pub.dev already has, such as the package's first one, which a
+# maintainer publishes by hand, is not published again: the run only creates its GitHub Release.
+on:
+  push:
+    tags: ['flutter-[0-9]+.[0-9]+.[0-9]+*']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+    working-directory: flutter
+
+jobs:
+  publish:
+    name: Publish to pub.dev
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The whole history, to check that the tag is a commit of master.
+          fetch-depth: 0
+          persist-credentials: false
+      - name: The tag is a commit of master, and the version of pubspec.yaml, the podspec and a CHANGELOG entry
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version="${TAG#flutter-}"
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/master ||
+            { echo "::error::the tag $TAG is not a commit of master"; exit 1; }
+          grep -qx "version: $version" pubspec.yaml || { echo "::error::pubspec.yaml's version is not $version"; exit 1; }
+          grep -Eq "^  s\.version += '$version'$" ios/mobile_push.podspec ||
+            { echo "::error::the podspec's s.version is not $version"; exit 1; }
+          grep -q "^## \[$version\] - " CHANGELOG.md || { echo "::error::CHANGELOG.md has no entry for $version"; exit 1; }
+          echo "the tag $TAG is a commit of master, and its pubspec, podspec and CHANGELOG name $version"
+      # It also sets up pub.dev's automated publishing: a short-lived token from this job's OIDC identity.
+      - uses: dart-lang/setup-dart@6afc89df92d6eb3834022f73cd65adc8cdfcb92d # v1.8.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
+        with:
+          channel: stable
+          flutter-version: '3.47.7'
+      - name: What the archive holds (flutter pub publish --dry-run)
+        run: scripts/verify.sh pub
+      # pub.dev answers 200 for a version it has and 404 for one it hasn't; any other answer stops the run, since then
+      # nothing says whether the version exists.
+      - name: Publish to pub.dev, unless pub.dev already has the version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version="${TAG#flutter-}"
+          name="$(sed -nE 's/^name: *([a-z0-9_]+) *$/\1/p' pubspec.yaml)"
+          [ -n "$name" ] || { echo "::error::pubspec.yaml has no package name"; exit 1; }
+          answer="$(curl -sS -o /dev/null -w '%{http_code}' --retry 3 \
+            "https://pub.dev/api/packages/$name/versions/$version" || true)"
+          case "$answer" in
+            200)
+              echo "::notice::pub.dev already has $name $version: nothing to publish"
+              exit 0
+              ;;
+            404) ;;
+            *)
+              echo "::error::pub.dev answered ${answer:-nothing} for $name $version, so it isn't known whether it has that version"
+              exit 1
+              ;;
+          esac
+          flutter pub publish --force
+
+  github-release:
+    name: GitHub Release
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: release
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: The release notes, from the version's CHANGELOG entry
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/notes.py" <<'PY'
+          import sys
+          version, path = sys.argv[1], sys.argv[2]
+          lines = open(path, encoding="utf-8").read().split("\n")
+          start = next((index for index, line in enumerate(lines) if line.startswith(f"## [{version}] - ")), None)
+          if start is None:
+              sys.exit(f"CHANGELOG.md has no entry for {version}")
+          end = next((index for index in range(start + 1, len(lines)) if lines[index].startswith("## [")), len(lines))
+          print("\n".join(lines[start + 1:end]).strip())
+          PY
+          python3 "$RUNNER_TEMP/notes.py" "${TAG#flutter-}" CHANGELOG.md > "$RUNNER_TEMP/notes.md"
+          cat "$RUNNER_TEMP/notes.md"
+      - name: Create the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          prerelease=()
+          case "${TAG#flutter-}" in *-alpha* | *-beta* | *-rc*) prerelease=(--prerelease) ;; esac
+          gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --verify-tag --title "$TAG" \
+            --notes-file "$RUNNER_TEMP/notes.md" "${prerelease[@]}"
