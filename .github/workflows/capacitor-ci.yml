@@ -1,6 +1,6 @@
 name: Capacitor CI
 
-# The checks of the capacitor folder, on GitHub-hosted runners, as steps of capacitor/scripts/verify.sh, the script a
+# The checks of the capacitor folder, on the org's own runners, as steps of capacitor/scripts/verify.sh, the script a
 # contributor runs locally: the portable steps on Linux; the plugin's Android unit tests and lint and the example's
 # minified Android build on Linux; SwiftLint, and the example's iOS build and XCTest suite, on macOS. The example smoke
 # tests and the consumer installs stay local release steps (capacitor/RELEASING.md). The native jobs resolve the pinned
@@ -22,7 +22,7 @@ defaults:
 jobs:
   js:
     name: JavaScript, types and unit tests
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -40,7 +40,7 @@ jobs:
 
   shell-scripts:
     name: Shell scripts
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -51,7 +51,7 @@ jobs:
 
   android:
     name: Android plugin and example
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -78,7 +78,7 @@ jobs:
 
   ios:
     name: iOS plugin and example
-    runs-on: macos-26
+    runs-on: ${{ vars.RUNS_ON_MACOS && fromJSON(vars.RUNS_ON_MACOS) || 'macos-26' }}
     timeout-minutes: 60
     env:
       SWIFTLINT_VERSION: 0.63.2
@@ -148,7 +148,7 @@ jobs:
     name: Capacitor ready
     if: always()
     needs: [js, shell-scripts, android, ios]
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 5
     permissions: {}
     steps:

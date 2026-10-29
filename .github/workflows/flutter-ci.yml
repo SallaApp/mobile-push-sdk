@@ -1,6 +1,6 @@
 name: Flutter CI
 
-# The checks of the Flutter package, in flutter/, on GitHub-hosted runners: the Dart checks on both supported Flutter
+# The checks of the Flutter package, in flutter/, on the org's own runners: the Dart checks on both supported Flutter
 # versions, the checks of the scripts, the pub.dev archive, and the native builds and unit tests on Linux and macOS.
 # They resolve the native SallaPush SDKs from their public repositories and Maven Central. The example's smoke tests,
 # the emulator run of its release build, the consumer install and the checks with Flutter 3.44 on macOS run locally,
@@ -23,7 +23,7 @@ defaults:
 jobs:
   dart:
     name: Dart (Flutter ${{ matrix.flutter }})
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 20
     strategy:
       fail-fast: false
@@ -50,7 +50,7 @@ jobs:
   # Every script: bash -n, shellcheck 0.11.0 from its pinned image, and the tooling's own tests.
   shell-scripts:
     name: Shell scripts
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -63,7 +63,7 @@ jobs:
   # keeps the repository's own tooling and docs out.
   pub:
     name: pub.dev package
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -81,7 +81,7 @@ jobs:
   # The runner has no emulator, so the release build's 15-second run stays a local step (VERIFY_ANDROID_NO_EMULATOR).
   android:
     name: Android
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -108,7 +108,7 @@ jobs:
   # a fresh app in CocoaPods mode.
   ios:
     name: iOS
-    runs-on: macos-26
+    runs-on: ${{ vars.RUNS_ON_MACOS && fromJSON(vars.RUNS_ON_MACOS) || 'macos-26' }}
     timeout-minutes: 90
     env:
       SWIFTLINT_VERSION: 0.63.2
@@ -174,7 +174,7 @@ jobs:
     name: Flutter ready
     if: always()
     needs: [dart, shell-scripts, pub, android, ios]
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 5
     permissions: {}
     # No checkout, so no flutter/ folder: the step runs in the empty workspace.

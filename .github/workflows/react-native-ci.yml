@@ -1,6 +1,6 @@
 name: React Native CI
 
-# The checks of the React Native package, on GitHub-hosted runners, from react-native/: the portable steps of
+# The checks of the React Native package, on the org's own runners, from react-native/: the portable steps of
 # scripts/verify.sh, and its android step on Linux and ios step on macOS, which build the example with the SallaPush
 # native SDKs at the pinned versions (from Maven Central and the SallaPush iOS repository). The example smoke tests, on
 # a simulator and an emulator, the consumer installs and the device checklist run before each release
@@ -21,7 +21,7 @@ defaults:
 jobs:
   js:
     name: JavaScript, types, unit tests and Expo plugin
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -39,7 +39,7 @@ jobs:
 
   shell-scripts:
     name: Shell scripts
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -50,7 +50,7 @@ jobs:
 
   android:
     name: Android unit tests, lint and release build
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -76,7 +76,7 @@ jobs:
 
   ios:
     name: iOS builds and XCTest
-    runs-on: macos-26
+    runs-on: ${{ vars.RUNS_ON_MACOS && fromJSON(vars.RUNS_ON_MACOS) || 'macos-26' }}
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -98,7 +98,7 @@ jobs:
     name: React Native ready
     if: always()
     needs: [js, shell-scripts, android, ios]
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 5
     permissions: {}
     # Without a checkout, the workspace has no react-native folder.

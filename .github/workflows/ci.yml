@@ -27,7 +27,7 @@ defaults:
 jobs:
   changes:
     name: Changed packages
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 5
     outputs:
       flutter: ${{ steps.packages.outputs.flutter }}
@@ -114,7 +114,7 @@ jobs:
     name: Root files
     needs: changes
     if: needs.changes.outputs.root == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -129,7 +129,7 @@ jobs:
     name: Testing Ready
     if: always()
     needs: [changes, root, flutter, react-native, capacitor]
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
     timeout-minutes: 5
     permissions: {}
     steps:
