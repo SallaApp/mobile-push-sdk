@@ -128,7 +128,9 @@ jobs:
   publish:
     name: Publish to npm
     needs: check
-    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
+    # GitHub-hosted on purpose: npm trusted publishing doesn't accept self-hosted runners (the org runners count as
+    # self-hosted), and this job never touches the repository, so the org IP allow list doesn't apply to it.
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: release
     permissions:
