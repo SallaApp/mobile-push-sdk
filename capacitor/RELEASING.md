@@ -51,9 +51,12 @@ The tag names the merged commit on `master`, and the publish workflow builds the
 
 The first version of a new package can't use trusted publishing yet: before step 2, a maintainer with publish rights on
 the `@salla.sa` scope publishes it by hand from the `capacitor` folder of that checkout (`yarn install --immutable`,
-then `npm publish --access public`), with two-factor authentication, and sets up trusted publishing for this
-repository, `capacitor-publish.yml` and the `release` environment. The tag's run then checks that npm's files are the
-tag's, publishes nothing to npm, and creates the GitHub Release.
+then `npm publish --access public`), with two-factor authentication, and on npmjs.com requires two-factor
+authentication and disallows tokens. The tag's run then checks that npm's files are the tag's, publishes nothing to
+npm, and creates the GitHub Release. Trusted publishing for this repository, `capacitor-publish.yml` and the `release`
+environment is set up on npmjs.com on the day the tag of the next version is pushed, not after the first one: npm
+expires a trusted publisher that hasn't published within 2 days of being added, and the tag of a version npm has
+already publishes nothing.
 
 ## After the release
 

@@ -30,10 +30,14 @@ takes a version twice: a defect in a release is fixed by the next version.
 
 **The first version on npm** is published by hand, since npm adds a trusted publisher only to a package that exists.
 After step 2, in that clone's `react-native` folder, check the package's files with `npm publish --dry-run`, and run
-`npm publish --access public`; both build the package afresh first. On npmjs.com, add the trusted publisher (the
-repository `SallaApp/mobile-push-sdk`, the workflow `react-native-publish.yml` and the environment `release`), require
-two-factor authentication and disallow tokens. Then push the tag: for a version npm has already, the workflow checks
-that npm's files are the tag's, and creates the GitHub Release.
+`npm publish --access public`; both build the package afresh first. On npmjs.com, require two-factor authentication
+and disallow tokens. Then push the tag: for a version npm has already, the workflow checks that npm's files are the
+tag's, and creates the GitHub Release.
+
+**The trusted publisher** (the repository `SallaApp/mobile-push-sdk`, the workflow `react-native-publish.yml` and the
+environment `release`) is added on npmjs.com on the day the tag of the next version is pushed, not after the first
+one: npm expires a trusted publisher that hasn't published within 2 days of being added, and the tag of a version npm
+has already publishes nothing.
 
 ## Updating the native SDKs
 
