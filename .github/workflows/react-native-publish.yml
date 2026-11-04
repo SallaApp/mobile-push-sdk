@@ -4,7 +4,7 @@ name: React Native Publish
 # access only, checks the tag against package.json and the CHANGELOG, runs the checks and packs the package. The next
 # two run in the protected environment "release" on the packed .tgz alone, so no code of the package or of its
 # dependencies runs where the credentials are: one publishes the .tgz to npm with trusted publishing (OIDC, so no token
-# is stored) and provenance, and the other creates the GitHub Release react-native-<version> from the version's
+# is stored), and the other creates the GitHub Release react-native-<version> from the version's
 # CHANGELOG entry, with the .tgz attached. The package's first version is published by hand before its tag is pushed
 # (react-native/RELEASING.md): for a version npm has already, the run checks that npm's files are the tag's and
 # publishes nothing.

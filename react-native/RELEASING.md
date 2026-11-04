@@ -23,7 +23,7 @@ takes a version twice: a defect in a release is fixed by the next version.
    `git push origin react-native-<version>`, in that clone. The tag runs
    [.github/workflows/react-native-publish.yml](../.github/workflows/react-native-publish.yml). It checks that the
    tag is on `master` at the version of `package.json` and the CHANGELOG, runs the checks and packs the package; then,
-   in the protected environment `release`, it publishes the package to npm with trusted publishing and provenance, and
+   in the protected environment `release`, it publishes the package to npm with trusted publishing, and
    creates the GitHub Release `react-native-<version>` from the version's CHANGELOG entry, with the package attached.
 4. **Check the published version** in a fresh app: install it with npm, with Yarn and from the GitHub Release, then
    prebuild and build an Expo app with the config plugin.

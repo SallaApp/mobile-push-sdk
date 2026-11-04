@@ -46,7 +46,7 @@ The tag names the merged commit on `master`, and the publish workflow builds the
    checks that the tag names a commit of `master` whose `package.json` and CHANGELOG name the version, runs the checks
    of CI's `js` job, and packs the package. Then, in the protected `release` environment that a maintainer approves,
    with no checkout, so that no code of the package or of its dependencies runs there, it publishes that package file
-   to npm with trusted publishing and provenance, and creates the GitHub Release `capacitor-<version>` from the
+   to npm with trusted publishing, and creates the GitHub Release `capacitor-<version>` from the
    CHANGELOG entry, with npm's package file attached. A pre-release goes to npm's `next` tag.
 
 The first version of a new package can't use trusted publishing yet: before step 2, a maintainer with publish rights on
