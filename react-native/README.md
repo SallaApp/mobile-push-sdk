@@ -13,7 +13,7 @@ SDKs, and an Expo config plugin does the native setup.
 
 > **SallaPush is for the mobile apps of Salla stores.** Contact the Salla team for your app id.
 
-- **Version:** 1.0.0. It wraps SallaPush iOS 1.0.4 and SallaPush Android 1.0.4. See
+- **Version:** 1.1.0. It wraps SallaPush iOS 1.0.4 and SallaPush Android 1.1.0. See
   [CHANGELOG.md](https://github.com/SallaApp/mobile-push-sdk/blob/master/react-native/CHANGELOG.md).
 - **Also for:** [iOS](https://github.com/SallaApp/mobile-push-ios-sdk) · [Android](https://github.com/SallaApp/mobile-push-android-sdk) · [Flutter](https://github.com/SallaApp/mobile-push-sdk/tree/master/flutter) · [Capacitor](https://github.com/SallaApp/mobile-push-sdk/tree/master/capacitor)
 
@@ -26,7 +26,7 @@ SDKs, and an Expo config plugin does the native setup.
 
 | Wrapper | SallaPush iOS | SallaPush Android | Framework | iOS | Android |
 |---|---|---|---|---|---|
-| React Native 1.0.0 | 1.0.4 | 1.0.4 | React Native 0.81 or later, New Architecture only; Expo SDK 54 or later, in development builds (not Expo Go) | 15.0 (React Native itself needs 15.1), Xcode 16 or later | minSdk 23 (React Native itself needs 24), compileSdk 34 or later, JDK 17 |
+| React Native 1.1.0 | 1.0.4 | 1.1.0 | React Native 0.81 or later, New Architecture only; Expo SDK 54 or later, in development builds (not Expo Go) | 15.0 (React Native itself needs 15.1), Xcode 16 or later | minSdk 23 (React Native itself needs 24), compileSdk 34 or later, JDK 17 |
 
 You also need a SallaPush app id for iOS and one for Android.
 
@@ -51,7 +51,7 @@ pod 'SallaPush', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', 
 **From GitHub:** each release's GitHub Release also has the package, as npm serves it:
 
 ```sh
-npm install https://github.com/SallaApp/mobile-push-sdk/releases/download/react-native-1.0.0/salla.sa-mobile-push-react-native-1.0.0.tgz
+npm install https://github.com/SallaApp/mobile-push-sdk/releases/download/react-native-1.1.0/salla.sa-mobile-push-react-native-1.1.0.tgz
 ```
 
 npm 12 then needs `allow-remote=root` in the app's `.npmrc`.
@@ -310,7 +310,7 @@ entries to your telemetry
 ([Debug](https://github.com/SallaApp/mobile-push-sdk/blob/master/react-native/docs/REFERENCE.md#sallapushdebug)). Every
 entry has a stable `code`, which the native docs list
 ([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference),
-[Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference)): match on
+[Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference)): match on
 it, not on the message. SallaPush never logs secrets or identity tokens; keep the level at `warn` in release builds.
 
 ### Badges

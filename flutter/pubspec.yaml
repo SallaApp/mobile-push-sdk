@@ -1,6 +1,6 @@
 name: mobile_push
 description: "SallaPush Flutter SDK: push notifications for the Flutter apps of Salla stores, built on the native SallaPush SDKs."
-version: 1.0.0
+version: 1.1.0
 repository: https://github.com/SallaApp/mobile-push-sdk/tree/master/flutter
 issue_tracker: https://github.com/SallaApp/mobile-push-sdk/issues
 topics:

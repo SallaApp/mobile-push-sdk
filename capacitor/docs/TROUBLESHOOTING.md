@@ -3,7 +3,7 @@
 Known problems, by what you see. Set the log level to `verbose` first ([Logging](../README.md#logging)); the native
 docs explain every log code
 ([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference),
-[Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference)).
+[Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference)).
 
 ## Installing and building
 

@@ -11,7 +11,7 @@ Push notifications for the Capacitor apps of Salla stores, on iOS and Android.
 
 > **SallaPush is for the mobile apps of Salla stores.** Contact the Salla team for your app id.
 
-- **Version:** 1.0.0. It wraps SallaPush iOS 1.0.4 and SallaPush Android 1.0.4. See
+- **Version:** 1.1.0. It wraps SallaPush iOS 1.0.4 and SallaPush Android 1.1.0. See
   [CHANGELOG.md](https://github.com/SallaApp/mobile-push-sdk/blob/master/capacitor/CHANGELOG.md).
 - **Also for:** [iOS](https://github.com/SallaApp/mobile-push-ios-sdk) · [Android](https://github.com/SallaApp/mobile-push-android-sdk) · [Flutter](https://github.com/SallaApp/mobile-push-sdk/tree/master/flutter) · [React Native](https://github.com/SallaApp/mobile-push-sdk/tree/master/react-native)
 
@@ -24,7 +24,7 @@ Push notifications for the Capacitor apps of Salla stores, on iOS and Android.
 
 | Wrapper | SallaPush iOS | SallaPush Android | Framework | iOS | Android | Node |
 |---|---|---|---|---|---|---|
-| Capacitor 1.0.0 | 1.0.4 | 1.0.4 | Capacitor 8 (Capacitor 9 isn't supported yet) | 15.0, Xcode 26 or later | minSdk 24, compileSdk 36 or later, JDK 21 | 22 or later |
+| Capacitor 1.1.0 | 1.0.4 | 1.1.0 | Capacitor 8 (Capacitor 9 isn't supported yet) | 15.0, Xcode 26 or later | minSdk 24, compileSdk 36 or later, JDK 21 | 22 or later |
 
 SallaPush needs an app id for iOS and one for Android. On the web its calls fail: check
 `Capacitor.isNativePlatform()` first.
@@ -307,7 +307,7 @@ The default level is `warn`. While you integrate, set `SallaPushLogLevel` (Info.
 time, and `SallaPush.Debug.setLogHandler(level, handler)` forwards entries at `level` or more severe to your
 telemetry. Match entries on their stable `code`
 ([iOS codes](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference),
-[Android codes](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference)).
+[Android codes](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference)).
 Ship with the level at `warn`, and never set Capacitor's `loggingBehavior` to `'production'`: it logs `login`'s token.
 
 ### Badges

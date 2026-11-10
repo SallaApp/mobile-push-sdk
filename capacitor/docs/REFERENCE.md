@@ -1,7 +1,7 @@
 # SallaPush Capacitor SDK: API reference
 
 The static configuration, the API, events, foreground display, badges, errors and log codes of
-`@salla.sa/mobile-push-capacitor`. This release wraps SallaPush iOS 1.0.4 and SallaPush Android 1.0.4. The setup is in
+`@salla.sa/mobile-push-capacitor`. This release wraps SallaPush iOS 1.0.4 and SallaPush Android 1.1.0. The setup is in
 the [README](../README.md); known problems are in [Troubleshooting](TROUBLESHOOTING.md).
 
 ## Contents
@@ -292,7 +292,7 @@ web: mock `@salla.sa/mobile-push-capacitor` in your tests, with the members your
 Every entry has a stable `code`, such as `register.ok`: match on it, never on the message. The native docs list every
 code, with its level and meaning
 ([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference),
-[Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference)). The
+[Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference)). The
 consoles: the unified log on iOS, subsystem `com.salla.push`, and Logcat on Android, tag `SallaPush`.
 
 The package's own lines start with `[SallaPush]`, on iOS in category `wrapper`:

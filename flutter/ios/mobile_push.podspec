@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'mobile_push'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'SallaPush Flutter SDK: push notifications for the Flutter apps of Salla stores.'
   s.description      = 'The Flutter plugin of SallaPush for the mobile apps of Salla stores, built on the SallaPush iOS SDK.'
   s.homepage         = 'https://github.com/SallaApp/mobile-push-sdk/tree/master/flutter'

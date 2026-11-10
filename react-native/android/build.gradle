@@ -60,7 +60,7 @@ android {
 dependencies {
   implementation "com.facebook.react:react-android"
   // From Maven Central, which React Native's Gradle plugin adds to every project of the app.
-  api "com.salla:mobile-push:1.0.4"
+  api "com.salla:mobile-push:1.1.0"
 
   testImplementation "junit:junit:4.13.2"
   testImplementation "org.robolectric:robolectric:4.14.1"
