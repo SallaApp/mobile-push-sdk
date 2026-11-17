@@ -349,7 +349,7 @@ useEffect(() => {
 
 Every SallaPush log entry has a stable code, such as `register.ok`: match on it, never on the message. The native docs
 list them all, with their levels
-([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference),
+([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference),
 [Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference)). The
 consoles are the unified log on iOS, subsystem `com.salla.push`, and Logcat on Android, tag `SallaPush`.
 
@@ -366,7 +366,7 @@ with `console.error`.
 
 ## Compatibility
 
-- **Native SDKs:** SallaPush iOS 1.0.4 and SallaPush Android 1.1.0.
+- **Native SDKs:** SallaPush iOS 1.1.0 and SallaPush Android 1.1.0.
 - **React Native** 0.81 or later, on the New Architecture only. **Expo** SDK 54 or later, in development builds.
 - **iOS** 15.0 or later (React Native itself needs 15.1, and Expo SDK 56 and later 16.4), Xcode 16 or later. The pods
   build as static libraries and as static or dynamic frameworks.

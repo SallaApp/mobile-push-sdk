@@ -2,14 +2,14 @@
 
 Known problems, by what you see. Set the log level to `verbose` first ([Logging](../README.md#logging)); the native
 docs explain every log code
-([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.0.4/docs/LOGGING.md#log-code-reference),
+([iOS](https://github.com/SallaApp/mobile-push-ios-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference),
 [Android](https://github.com/SallaApp/mobile-push-android-sdk/blob/1.1.0/docs/LOGGING.md#log-code-reference)).
 
 ## Installing and building
 
 | You see | Fix |
 |---|---|
-| `npx cap sync ios` or `pod install`: "Unable to find a specification for `SallaPush (= 1.0.4)` depended upon by `Salla.saMobilePushCapacitor`" | A CocoaPods app: add the [Podfile lines](../README.md#installation), and the extension's target when the app has the extension, then run `npx cap sync ios` again. |
+| `npx cap sync ios` or `pod install`: "Unable to find a specification for `SallaPush (= 1.1.0)` depended upon by `Salla.saMobilePushCapacitor`" | A CocoaPods app: add the [Podfile lines](../README.md#installation), and the extension's target when the app has the extension, then run `npx cap sync ios` again. |
 | After an update: `CocoaPods could not find compatible versions for pod "SallaPush"`, or Xcode can't resolve `mobile-push-ios-sdk` | Set every SallaPush pin of your app, each `:tag =>` of the Podfile or the extension's package rule, to the SallaPush iOS version of [Requirements](../README.md#requirements), then run `npx cap sync`. |
 | Duplicate SallaPush symbols, or two SallaPush instances at run time | A Swift Package Manager app, with `ios/App/CapApp-SPM`, never declares the SallaPush pods: remove them from the Podfile. |
 | "unknown ISA `PBXFileSystemSynchronizedRootGroup`", or "Unable to find compatibility version string for object version 77" | Update CocoaPods to 1.16 or later, or convert the extension's folder to a group (right-click it, **Convert to Group**). |

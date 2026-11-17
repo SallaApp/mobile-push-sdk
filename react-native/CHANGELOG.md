@@ -5,7 +5,7 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-## [1.1.0] - 2026-11-10
+## [1.1.0] - 2026-11-17
 
 The first public release of the SallaPush React Native SDK, for the mobile apps of Salla stores.
 
@@ -20,7 +20,7 @@ The first public release of the SallaPush React Native SDK, for the mobile apps 
 
 ### Changed
 
-- SallaPush Android 1.1.0.
+- SallaPush iOS 1.1.0 and SallaPush Android 1.1.0.
 
 ## [1.0.0] - 2026-10-19
 

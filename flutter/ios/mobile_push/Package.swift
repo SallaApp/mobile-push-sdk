@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "FlutterFramework", path: "../FlutterFramework"),
-        .package(url: "https://github.com/SallaApp/mobile-push-ios-sdk.git", exact: "1.0.4")
+        .package(url: "https://github.com/SallaApp/mobile-push-ios-sdk.git", exact: "1.1.0")
     ],
     targets: [
         .target(

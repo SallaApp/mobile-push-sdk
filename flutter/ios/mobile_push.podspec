@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = { 'mobile_push_privacy' => ['mobile_push/Sources/mobile_push/PrivacyInfo.xcprivacy'] }
   s.dependency 'Flutter'
   # A git-only pod: the app's Podfile declares SallaPushCore and SallaPush with :git and :tag.
-  s.dependency 'SallaPush', '1.0.4'
+  s.dependency 'SallaPush', '1.1.0'
   s.platform         = :ios, '15.0'
   s.swift_version    = '5.0'
 

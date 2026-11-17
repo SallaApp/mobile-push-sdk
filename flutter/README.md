@@ -19,7 +19,7 @@ Push notifications for the Flutter apps of Salla stores.
 
 | Wrapper | SallaPush iOS | SallaPush Android | Framework | iOS | Android |
 |---|---|---|---|---|---|
-| Flutter 1.1.0 | 1.0.4 | 1.1.0 | Flutter 3.44 or later, Dart 3.12 or later | 15.0, Xcode 16 or later | minSdk 23, compileSdk 34 or later, JDK 17 |
+| Flutter 1.1.0 | 1.1.0 | 1.1.0 | Flutter 3.44 or later, Dart 3.12 or later | 15.0, Xcode 16 or later | minSdk 23, compileSdk 34 or later, JDK 17 |
 
 - A SallaPush app id for iOS and one for Android. SallaPush runs on iOS, and on Android with Google Play services.
 
