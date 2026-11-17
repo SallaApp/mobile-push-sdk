@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.private_header_files = "ios/**/*.h"
 
   # The SallaPush pods come from git, so the app's Podfile declares their source (README).
-  s.dependency "SallaPush", "1.0.4"
+  s.dependency "SallaPush", "1.1.0"
 
   install_modules_dependencies(s)
 end
