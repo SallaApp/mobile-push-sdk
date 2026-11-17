@@ -580,7 +580,7 @@ step_ios() {
   udid="$(simulator_udid "$work")" || fail "no simulator"
   keep_example_project
   local_ios_sdk "$root/example/ios"
-  (cd "$root/example" && "$FLUTTER" build ios --config-only)
+  (cd "$root/example" && "$FLUTTER" build ios --config-only --no-codesign)
   (cd "$root/example" && "$FLUTTER" build ios --simulator --no-codesign)
   # Parallel testing clones the simulator and shuts the original down.
   (cd "$root" && xcodebuild test -quiet -workspace example/ios/Runner.xcworkspace -scheme Runner \
