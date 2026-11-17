@@ -1,6 +1,6 @@
 {
   "name": "@salla.sa/mobile-push-react-native",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "SallaPush React Native SDK: push notifications for the React Native and Expo apps of Salla stores, built on the native SallaPush SDKs.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",

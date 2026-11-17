@@ -5,6 +5,8 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-17
+
 The first public release of the SallaPush React Native SDK, for the mobile apps of Salla stores.
 
 ### Added
@@ -15,6 +17,10 @@ The first public release of the SallaPush React Native SDK, for the mobile apps 
   subscription, consent, logging and the app icon badge. The README shows the setup and each task, and
   `docs/REFERENCE.md` the API in detail.
 - The MIT License.
+
+### Changed
+
+- SallaPush iOS 1.1.0 and SallaPush Android 1.1.0.
 
 ## [1.0.0] - 2026-10-19
 

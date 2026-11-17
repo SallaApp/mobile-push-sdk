@@ -34,8 +34,8 @@ The SallaPush pods come from git tags, so your Podfile declares them. In `ios/Po
 
 <!-- snippet:docs/snippets/Podfile#podfile-app -->
 ```ruby
-pod 'SallaPushCore', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
-pod 'SallaPush', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
+pod 'SallaPushCore', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.1.0'
+pod 'SallaPush', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.1.0'
 ```
 
 and, for the [Notification Service Extension](#ios-notification-service-extension), at the end of the Podfile:
@@ -44,8 +44,8 @@ and, for the [Notification Service Extension](#ios-notification-service-extensio
 ```ruby
 target 'SallaPushNotificationService' do
   use_frameworks!
-  pod 'SallaPushCore', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
-  pod 'SallaPushExtension', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.0.4'
+  pod 'SallaPushCore', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.1.0'
+  pod 'SallaPushExtension', :git => 'https://github.com/SallaApp/mobile-push-ios-sdk.git', :tag => '1.1.0'
 end
 ```
 
@@ -82,7 +82,7 @@ Recommended: the extension shows the notification's image and counts SallaPush n
 
 4. Link `SallaPushExtension` to it, never `SallaPush`:
    - with Swift Package Manager: **File → Add Package Dependencies…**, the URL
-     `https://github.com/SallaApp/mobile-push-ios-sdk.git`, the rule **Exact Version** for SallaPush iOS 1.0.4, and the
+     `https://github.com/SallaApp/mobile-push-ios-sdk.git`, the rule **Exact Version** for SallaPush iOS 1.1.0, and the
      product `SallaPushExtension`, added to the extension target only;
    - in [CocoaPods mode](#ios-cocoapods-mode): the extension's Podfile block.
 5. Replace its `NotificationService.swift` with this one:
