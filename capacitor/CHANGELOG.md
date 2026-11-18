@@ -5,6 +5,11 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Security
+
+- The default Kotlin Gradle plugin of the Android plugin moves from 2.2.20 to 2.4.21, which fixes CVE-2026-53914
+  (unsafe deserialization of the KAPT build cache). The plugin uses no KAPT, and an app's `kotlin_version` still wins.
+
 ## [1.1.0] - 2026-11-17
 
 The first public release of the SallaPush Capacitor SDK, for the mobile apps of Salla stores.

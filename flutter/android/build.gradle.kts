@@ -1,7 +1,7 @@
 group = "sa.salla.sallapush_flutter"
 
 buildscript {
-    val kotlinVersion = "2.4.0"
+    val kotlinVersion = "2.4.21"
     repositories {
         google()
         mavenCentral()
