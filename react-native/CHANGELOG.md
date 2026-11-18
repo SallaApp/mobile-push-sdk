@@ -5,6 +5,12 @@ and versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Security
+
+- The default Kotlin Gradle plugin of the Android library moves from 2.0.21 to 2.4.21, and the example app's from 2.2.0
+  (React Native's own) to 2.4.21, which fixes CVE-2026-53914 (unsafe deserialization of the KAPT build cache). The
+  library uses no KAPT, and an app's `kotlinVersion` still wins.
+
 ## [1.1.0] - 2026-11-17
 
 The first public release of the SallaPush React Native SDK, for the mobile apps of Salla stores.
