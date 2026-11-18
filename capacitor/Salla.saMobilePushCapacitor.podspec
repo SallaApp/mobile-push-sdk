@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "ios/Sources/SallaPushCapacitorPlugin/**/*.swift"
 
-  # Capacitor 8 only, as the npm peer range; Capacitor's local pod reports @capacitor/ios's version (8.5.3).
+  # Capacitor 8 only, as the npm peer range; Capacitor's local pod reports @capacitor/ios's version (8.6.2).
   s.dependency "Capacitor", ">= 8.0.0", "< 9.0.0"
   # The SallaPush pods come from git, so the app's Podfile declares their source (README).
   s.dependency "SallaPush", "1.1.0"

@@ -44,7 +44,7 @@ readonly SP_EXAMPLE_ID=sa.salla.sallapush.example
 # What the consumer apps of scripts/verify.sh install: the newest and the oldest Capacitor 8 the plugin supports,
 # Capacitor's push plugin beside SallaPush, Vite for the web build, and the package managers that install the package
 # file from its URL, as from a GitHub Release.
-readonly SP_CAPACITOR_VERSION=8.5.3
+readonly SP_CAPACITOR_VERSION=8.6.2
 readonly SP_CAPACITOR_MIN=8.0.2
 readonly SP_PUSH_NOTIFICATIONS_VERSION=8.1.3
 readonly SP_VITE_VERSION=7.3.7
