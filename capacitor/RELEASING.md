@@ -46,14 +46,17 @@ The tag names the merged commit on `master`, and the publish workflow builds the
    checks that the tag names a commit of `master` whose `package.json` and CHANGELOG name the version, runs the checks
    of CI's `js` job, and packs the package. Then, in the protected `release` environment that a maintainer approves,
    with no checkout, so that no code of the package or of its dependencies runs there, it publishes that package file
-   to npm with trusted publishing and provenance, and creates the GitHub Release `capacitor-<version>` from the
+   to npm with trusted publishing, and creates the GitHub Release `capacitor-<version>` from the
    CHANGELOG entry, with npm's package file attached. A pre-release goes to npm's `next` tag.
 
 The first version of a new package can't use trusted publishing yet: before step 2, a maintainer with publish rights on
 the `@salla.sa` scope publishes it by hand from the `capacitor` folder of that checkout (`yarn install --immutable`,
-then `npm publish --access public`), with two-factor authentication, and sets up trusted publishing for this
-repository, `capacitor-publish.yml` and the `release` environment. The tag's run then checks that npm's files are the
-tag's, publishes nothing to npm, and creates the GitHub Release.
+then `npm publish --access public`), with two-factor authentication, and on npmjs.com requires two-factor
+authentication and disallows tokens. The tag's run then checks that npm's files are the tag's, publishes nothing to
+npm, and creates the GitHub Release. Trusted publishing for this repository, `capacitor-publish.yml` and the `release`
+environment is set up on npmjs.com on the day the tag of the next version is pushed, not after the first one: npm
+expires a trusted publisher that hasn't published within 2 days of being added, and the tag of a version npm has
+already publishes nothing.
 
 ## After the release
 

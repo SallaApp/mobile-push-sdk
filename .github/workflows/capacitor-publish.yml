@@ -4,7 +4,7 @@ name: Capacitor Publish
 # checks the tag, runs the checks of the capacitor CI's js job and packs the package, with read access only. The next
 # two jobs run in the protected environment "release" without a checkout, so no code of the package or of its
 # dependencies runs where the credentials are: one publishes the packed file to npm with trusted publishing (OIDC, so no
-# token is stored) and provenance, and the other creates the GitHub Release capacitor-<version> from the version's
+# token is stored), and the other creates the GitHub Release capacitor-<version> from the version's
 # CHANGELOG entry, with npm's package file attached, which apps can install from its URL. The package's first version is
 # published by hand before its tag is pushed (capacitor/RELEASING.md): for a version npm has already, the run checks
 # that npm's files are the tag's and publishes nothing.
@@ -124,11 +124,15 @@ jobs:
           path: ${{ runner.temp }}/release/
           if-no-files-found: error
 
-  # Trusted publishing: npm takes the workflow's OIDC token, no npm token exists, and the package gets provenance.
+  # Trusted publishing: npm takes the workflow's OIDC token, and no npm token exists. No --provenance: npm makes
+  # provenance only for a public repository and rejects a publish that asks for it from any other; once this repository
+  # is public, trusted publishing adds provenance by itself.
   publish:
     name: Publish to npm
     needs: check
-    runs-on: ${{ fromJSON(vars.RUNS_ON) }}
+    # GitHub-hosted on purpose: npm trusted publishing doesn't accept self-hosted runners (the org runners count as
+    # self-hosted), and this job never touches the repository, so the org IP allow list doesn't apply to it.
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     environment: release
     permissions:
@@ -175,7 +179,7 @@ jobs:
           fi
           dist_tag=latest
           [ "$PRERELEASE" != true ] || dist_tag=next
-          npm publish "$RUNNER_TEMP/release/$FILE" --provenance --access public --tag "$dist_tag"
+          npm publish "$RUNNER_TEMP/release/$FILE" --access public --tag "$dist_tag"
 
   github-release:
     name: GitHub Release
